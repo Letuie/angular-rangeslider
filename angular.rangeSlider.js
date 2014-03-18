@@ -100,7 +100,7 @@
                          '<div class="ngrs-runner">',
                            '<div class="ngrs-handle ngrs-handle-min"><i></i></div>',
                            '<div class="ngrs-handle ngrs-handle-max"><i></i></div>',
-                           '<div class="ngrs-join"></div>',
+                           '<div class="ngrs-join"><div class="ngrs-sub-join"></div></div>',
                          '</div>',
                          '<div class="ngrs-value-runner">',
                            '<div class="ngrs-value ngrs-value-min" ng-show="showValues"><div>{{filteredModelMin}}</div></div>',
@@ -520,7 +520,7 @@
                             }).bind(offEvent, function () {
 
                                 if (angular.isFunction(scope.onHandleUp)) {
-                                    scope.onHandleUp();
+                                    scope.onHandleUp()(index);
                                 }
 
                                 unbind.off(eventNamespace);
