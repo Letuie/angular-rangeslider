@@ -339,8 +339,8 @@
               var handle1pos = restrict(((scope.modelMin - scope.min) / range) * 100),
                 handle2pos = restrict(((scope.modelMax - scope.min) / range) * 100);
 
-              handle1pos -= handles[0].width() / $slider.width() * 100 / 2;
-              handle2pos += handles[1].width() / $slider.width() * 100 / 2;
+              //  handles cannot overlap anymore.
+              handle2pos += handles[1].width() / $slider.width() * 100;
 
               if (scope.attachHandleValues) {
                 var value1pos = handle1pos,
