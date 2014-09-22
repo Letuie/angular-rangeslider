@@ -118,7 +118,6 @@
           modelMax: '=?',
           onHandleDown: '&', // calls optional function when handle is grabbed
 	        onHandleUp: '&', // calls optional function when handle is released
-          onClickJoin: '&', // calls optional function when join is clicked
           orientation: '@', // options: horizontal | vertical | vertical left | vertical right
           step: '@',
           decimalPlaces: '@',
@@ -592,12 +591,13 @@
               event.stopPropagation();
             });
 
+	        //  On click of "ngrs-join" (progress meter), emit "joinClicked" event with mouse position and width of elem.
+	        //  The parent directive should listen to this event and seek the video forward and backward.
 	        join.bind('click', function (event) {
-		        if ( angular.isFunction(scope.onClickJoin) ) {
-			        event.stopPropagation();
-			        scope.onClickJoin({offsetX: event.offsetX, offsetY: event.offsetY, width: join.width()});
-		        }
+		        event.stopPropagation();
+		        scope.$emit('joinClicked', {offsetX: event.offsetX, offsetY: event.offsetY, width: join.width()});
 	        });
+
           // bind events to each handle
           handleMove(0);
           handleMove(1);
