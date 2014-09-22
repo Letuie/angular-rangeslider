@@ -117,7 +117,8 @@
           modelMin: '=?',
           modelMax: '=?',
           onHandleDown: '&', // calls optional function when handle is grabbed
-          onHandleUp: '&', // calls optional function when handle is released
+	        onHandleUp: '&', // calls optional function when handle is released
+          onClickJoin: '&', // calls optional function when join is clicked
           orientation: '@', // options: horizontal | vertical | vertical left | vertical right
           step: '@',
           decimalPlaces: '@',
@@ -591,6 +592,12 @@
               event.stopPropagation();
             });
 
+	        join.bind('click', function (event) {
+		        if ( angular.isFunction(scope.onClickJoin) ) {
+			        event.stopPropagation();
+			        scope.onClickJoin({offsetX: event.offsetX, offsetY: event.offsetY, width: join.width()});
+		        }
+	        });
           // bind events to each handle
           handleMove(0);
           handleMove(1);
