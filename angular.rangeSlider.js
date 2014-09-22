@@ -595,7 +595,7 @@
 	        //  The parent directive should listen to this event and seek the video forward and backward.
 	        join.bind('click', function (event) {
 		        event.stopPropagation();
-		        scope.$emit('joinClicked', {offsetX: event.offsetX, offsetY: event.offsetY, width: join.width()});
+		        scope.$emit('ngrs.joinClicked', {offsetX: event.offsetX, offsetY: event.offsetY, width: join.width()});
 	        });
 
           // bind events to each handle
