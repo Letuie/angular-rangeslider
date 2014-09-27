@@ -368,9 +368,10 @@
 
                 if (scope.attachHandleValues){
                   // reposition values
-                  angular.element('.ngrs-value-runner').addClass('ngrs-attached-handles');
-                  angular.element(values[0]).css(pos, '0%');
-                  angular.element(values[1]).css(pos, '100%');
+	                //  We are not moving the values for now.  It will "auto" move since wrapped within handles.
+                   angular.element('.ngrs-value-runner').addClass('ngrs-attached-handles');
+                  //angular.element(values[0]).css(pos, '0%');
+                  //angular.element(values[1]).css(pos, '100%');
                 }
 
                 // reposition join
@@ -385,8 +386,9 @@
                 if (scope.attachHandleValues) {
                   // reposition values
                   angular.element('.ngrs-value-runner').addClass('ngrs-attached-handles');
-                  angular.element(values[0]).css(pos, value1pos + '%');
-                  angular.element(values[1]).css(pos, value2pos + '%');
+	                //  We are not moving the values for now.  It will "auto" move since wrapped within handles.
+                  // angular.element(values[0]).css(pos, value1pos + '%');
+                  // angular.element(values[1]).css(pos, value2pos + '%');
                   angular.element(values[1]).css(posOpp, 'auto');
                 }
 
