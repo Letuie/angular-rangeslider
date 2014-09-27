@@ -397,13 +397,13 @@
                 }
 
                 // reposition join
-	              angular.element(join).css(pos, handle1pos + '%').css(posOpp, '0%');
-                // angular.element(join).css(pos, handle1pos + '%').css(posOpp, (100 - handle2pos) + '%');
+	              //angular.element(join).css(pos, handle1pos + '%').css(posOpp, '0%');
+                angular.element(join).css(pos, handle1pos + '%').css(posOpp, (100 - handle2pos) + '%');
 
                 // ensure min handle can't be hidden behind max handle
-                if (handle1pos >  95) {
-                  angular.element(handles[0]).css('z-index', 3);
-                }
+                //if (handle1pos >  95) {
+                  //angular.element(handles[0]).css('z-index', 3);
+               // }
               }
 
             }
