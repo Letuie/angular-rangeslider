@@ -97,23 +97,25 @@
         restrict: 'A',
         replace: true,
         template: ['<div class="ngrs-range-slider">',
-          '<div class="ngrs-runner">',
-          '<div class="button ngrs-handle ngrs-handle-min"><button class="button ngrs-handle-rewind"></button>',
-		      '<button class="button ngrs-handle-forward"></button>',
-	        '<div class="ngrs-value ngrs-value-min" ng-show="showValues"><div>{{filteredModelMin}}</div></div>',
-		      '<div class="ngrs-handle-pin"></div></div>',
-          '<div class="button ngrs-handle ngrs-handle-max"><button class="button ngrs-handle-rewind"></button>',
-		      '<button class="button ngrs-handle-forward"></button>',
-	        '<div class="ngrs-value ngrs-value-max" ng-show="showValues"><div>{{filteredModelMax}}</div></div>',
-		      '<div class="ngrs-handle-pin"></div></div>',
-          '<div class="ngrs-join"><div class="ngrs-sub-join"></div></div>',
-          '</div>',
-          '<div class="ngrs-value-runner">',
-          '</div>',
-          '<div class="ngrs-range">',
-          '<hr>',
-          '</div>',
-          '</div>'].join(''),
+			  '<div class="ngrs-runner">',
+			  '<div class="button ngrs-handle ngrs-handle-min">',
+			  '<div class="button ngrs-handle-rewind" ng-click="onClickMinRewind()"><i></i></div>',
+			  '<div class="button ngrs-handle-forward" ng-click="onClickMinForward()"><i></i></div>',
+			  '<div class="ngrs-value ngrs-value-min" ng-show="showValues"><div>{{filteredModelMin}}</div></div>',
+			  '<div class="ngrs-handle-pin"></div></div>',
+			  '<div class="button ngrs-handle ngrs-handle-max">',
+			  '<div class="button ngrs-handle-rewind" ng-click="onClickMaxRewind()"><i></i></div>',
+			  '<div class="button ngrs-handle-forward" ng-click="onClickMaxForward()"><i></i></div>',
+			  '<div class="ngrs-value ngrs-value-max" ng-show="showValues"><div>{{filteredModelMax}}</div></div>',
+			  '<div class="ngrs-handle-pin"></div></div>',
+			  '<div class="ngrs-join"><div class="ngrs-sub-join"></div></div>',
+			  '</div>',
+			  '<div class="ngrs-value-runner">',
+			  '</div>',
+			  '<div class="ngrs-range">',
+			  '<hr>',
+			  '</div>',
+        '</div>'].join(''),
         scope: {
           disabled: '=?',
           min: '=',
@@ -258,6 +260,50 @@
 
           scope.$watch('modelMin', setModelMinMax);
           scope.$watch('modelMax', setModelMinMax);
+
+	        //  TODO: set 0.2 to this directive's increment.
+	        // TODO:  make this code more elegant and dry.
+	        scope.onClickMinRewind = function onClickMinRewind () {
+		        var rewindModelMin = scope.modelMin - 0.2;
+
+		        if ( rewindModelMin < scope.min ) {
+			        scope.modelMin = scope.min;
+		        } else {
+			        scope.modelMin = rewindModelMin;
+		        }
+	        };
+
+	        scope.onClickMinForward = function onClickMinForward () {
+		        var forwardModelMin = scope.modelMin + 0.2;
+
+		        if ( forwardModelMin > scope.modelMax ) {
+			        scope.modelMin = scope.modelMax;
+		        } else {
+			        scope.modelMin = forwardModelMin;
+		        }
+	        };
+
+	        scope.onClickMaxRewind = function onClickMaxRewind () {
+		        var rewindModelMax = scope.modelMax - 0.2;
+
+		        if ( rewindModelMax < scope.modelMin ) {
+			        scope.modelMax = scope.modelMin;
+		        } else {
+			        scope.modelMax = rewindModelMax;
+		        }
+	        };
+
+
+	        scope.onClickMaxForward = function onClickMaxForward () {
+		        var forwardModelMax = scope.modelMax + 0.2;
+
+		        if ( forwardModelMax > scope.max) {
+			        scope.modelMax = scope.max;
+		        } else {
+			        scope.modelMax = forwardModelMax;
+		        }
+
+	        };
 
           /**
            * HANDLE CHANGES

@@ -161,11 +161,11 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 /* line 165, scss/angular.rangeSlider.scss */
-.ngrs-range-slider .ngrs-handle-min i {
+.ngrs-range-slider .ngrs-handle-rewind i {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFNJREFUeNpiYMAEXEDsA+OwoEnKALETEHOgK2AEYhMgNkQ3DqSAB6pLAot1DExIJmAFzED8C4hvQdnIppyFKYCBp0D8CohloVafxWUqN7I3AQIMAKw6B24pOi8lAAAAAElFTkSuQmCC");
 }
 /* line 172, scss/angular.rangeSlider.scss */
-.ngrs-range-slider .ngrs-handle-max i {
+.ngrs-range-slider .ngrs-handle-forward i {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFdJREFUeNpiYEAAHyDmYkADzEhsByBWA+K3QPwJmwJjIGYBYlUgZgLi59gUwIAkEEsD8VMmBtyAkQFqJDZwAYjPAPE/dAU/gHg/ED/GpgvkTW50QYAAAwADfwrM5sqplgAAAABJRU5ErkJggg==");
 }
 /* line 182, scss/angular.rangeSlider.scss */
